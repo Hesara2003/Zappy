@@ -71,6 +71,9 @@ export const CategoryListing: React.FC = () => {
             </div>
 
             <main className="flex-1 max-w-[1400px] mx-auto px-6 py-12 w-full">
+                {/* Breadcrumbs */}
+                <Breadcrumbs items={breadcrumbItems} />
+
                 {/* Search Bar */}
                 <div className="mb-12">
                     <div className="bg-white p-4 rounded-2xl shadow-lg border border-gray-100 flex flex-col md:flex-row gap-4 items-center max-w-4xl mx-auto -mt-24 relative z-20">
@@ -252,8 +255,8 @@ export const CategoryListing: React.FC = () => {
                                                     key={page}
                                                     onClick={() => setCurrentPage(page)}
                                                     className={`w-10 h-10 rounded-lg font-medium transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 ${page === currentPage
-                                                            ? 'bg-black text-white'
-                                                            : 'text-gray-600 hover:bg-gray-100'
+                                                        ? 'bg-black text-white'
+                                                        : 'text-gray-600 hover:bg-gray-100'
                                                         }`}
                                                 >
                                                     {page}
