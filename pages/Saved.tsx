@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header } from '../components/Header';
+
 import { Footer } from '../components/Footer';
 import { Heart, Sparkles } from 'lucide-react';
 import { PLACES_DATA } from '../data/mockData';
@@ -12,7 +12,7 @@ export const Saved: React.FC = () => {
 
     return (
         <div className="min-h-screen bg-[#fafcff] flex flex-col relative">
-            <Header isLoggedIn={false} toggleLogin={() => { }} />
+            {/* Header removed */}
 
 
 

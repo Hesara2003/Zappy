@@ -2,7 +2,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { PLACES_DATA, CATEGORIES } from '../data/mockData';
-import { Header } from '../components/Header';
+
 import { Footer } from '../components/Footer';
 import { MapPin, Star, Clock, Globe, Phone, Share2, Heart, CheckCircle2 } from 'lucide-react';
 
@@ -25,7 +25,7 @@ const PlaceDetail: React.FC = () => {
 
     return (
         <div className="min-h-screen bg-white">
-            <Header isLoggedIn={false} toggleLogin={() => { }} />
+            {/* Header removed */}
 
             {/* Hero Section */}
             <div className="relative h-[60vh] w-full">

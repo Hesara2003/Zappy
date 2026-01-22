@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header } from '../components/Header';
+
 import { Footer } from '../components/Footer';
 import { Search as SearchIcon, MapPin, ArrowRight, TrendingUp } from 'lucide-react';
 import { MediaCard } from '../components/ui/MediaCard';
@@ -15,7 +15,7 @@ export const Search: React.FC = () => {
 
     return (
         <div className="min-h-screen bg-[#fafcff] flex flex-col relative">
-            <Header isLoggedIn={false} toggleLogin={() => { }} />
+            {/* Header removed */}
             <main className="flex-1 pt-32 px-6 max-w-[1400px] mx-auto w-full pb-20">
 
 

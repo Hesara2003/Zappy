@@ -2,7 +2,7 @@
 import React, { useMemo, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { CATEGORIES, PLACES_DATA } from '../data/mockData';
-import { Header } from '../components/Header';
+
 import { Footer } from '../components/Footer';
 import { MediaCard } from '../components/ui/MediaCard';
 import { SectionHeading } from '../components/ui/SectionHeading';
@@ -27,7 +27,7 @@ export const CategoryListing: React.FC = () => {
 
     return (
         <div className="min-h-screen bg-[#fafcff] flex flex-col relative">
-            <Header isLoggedIn={false} toggleLogin={() => { }} />
+            {/* Header removed */}
 
             {/* Header Banner */}
             <div className={`relative h-[400px] w-full overflow-hidden`}>

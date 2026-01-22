@@ -22,7 +22,7 @@ const HomePage: React.FC<HomePageProps> = ({ isLoggedIn, toggleLogin }) => {
   return (
     <PageTransition>
       <div className="min-h-screen bg-[#fafcff] flex flex-col relative">
-        <Header isLoggedIn={isLoggedIn} toggleLogin={toggleLogin} />
+        {/* Header removed from here */}
 
         <main className="flex-1">
           {isLoggedIn ? <LoggedInView /> : <GuestView />}
@@ -43,6 +43,7 @@ const App: React.FC = () => {
 
   return (
     <BrowserRouter>
+      <Header isLoggedIn={isLoggedIn} toggleLogin={toggleLogin} />
       <Routes>
         <Route path="/" element={<HomePage isLoggedIn={isLoggedIn} toggleLogin={toggleLogin} />} />
 

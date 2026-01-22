@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header } from '../components/Header';
+
 import { Footer } from '../components/Footer';
 import { CATEGORIES } from '../data/mockData';
 import { Link } from 'react-router-dom';
@@ -10,7 +10,7 @@ import { RevealOnScroll } from '../components/ui/RevealOnScroll';
 export const Categories: React.FC = () => {
     return (
         <div className="min-h-screen bg-black flex flex-col relative">
-            <Header isLoggedIn={false} toggleLogin={() => { }} />
+            {/* Header removed */}
 
             <main className="flex-1 pt-32 pb-24 px-6 max-w-[1400px] mx-auto w-full">
 

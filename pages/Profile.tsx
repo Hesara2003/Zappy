@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header } from '../components/Header';
+
 import { Footer } from '../components/Footer';
 import { User, Settings, LogOut, CheckCircle, CreditCard, Bell, Shield, HelpCircle, ChevronRight, Camera, Star, List } from 'lucide-react';
 import { RevealOnScroll } from '../components/ui/RevealOnScroll';
@@ -7,7 +7,7 @@ import { RevealOnScroll } from '../components/ui/RevealOnScroll';
 export const Profile: React.FC = () => {
     return (
         <div className="min-h-screen bg-[#fafcff] flex flex-col relative">
-            <Header isLoggedIn={true} toggleLogin={() => { }} />
+            {/* Header removed */}
             <main className="flex-1 pt-32 px-6 max-w-[1000px] mx-auto w-full pb-20">
 
 
