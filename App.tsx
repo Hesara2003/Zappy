@@ -62,39 +62,51 @@ const App: React.FC = () => {
         <Route path="/" element={<HomePage isLoggedIn={isLoggedIn} toggleLogin={toggleLogin} />} />
 
         <Route path="/category/:slug" element={
-          <PageTransition>
-            <CategoryListing />
-          </PageTransition>
+          <Suspense fallback={<PageLoader />}>
+            <PageTransition>
+              <CategoryListing />
+            </PageTransition>
+          </Suspense>
         } />
 
         <Route path="/place/:id" element={
-          <PageTransition>
-            <PlaceDetail />
-          </PageTransition>
+          <Suspense fallback={<PageLoader />}>
+            <PageTransition>
+              <PlaceDetail />
+            </PageTransition>
+          </Suspense>
         } />
 
         <Route path="/categories" element={
-          <PageTransition>
-            <Categories />
-          </PageTransition>
+          <Suspense fallback={<PageLoader />}>
+            <PageTransition>
+              <Categories />
+            </PageTransition>
+          </Suspense>
         } />
 
         <Route path="/search" element={
-          <PageTransition>
-            <Search />
-          </PageTransition>
+          <Suspense fallback={<PageLoader />}>
+            <PageTransition>
+              <Search />
+            </PageTransition>
+          </Suspense>
         } />
 
         <Route path="/saved" element={
-          <PageTransition>
-            <Saved />
-          </PageTransition>
+          <Suspense fallback={<PageLoader />}>
+            <PageTransition>
+              <Saved />
+            </PageTransition>
+          </Suspense>
         } />
 
         <Route path="/profile" element={
-          <PageTransition>
-            <Profile />
-          </PageTransition>
+          <Suspense fallback={<PageLoader />}>
+            <PageTransition>
+              <Profile />
+            </PageTransition>
+          </Suspense>
         } />
       </Routes>
       <MobileNav isLoggedIn={isLoggedIn} />
