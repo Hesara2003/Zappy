@@ -184,27 +184,98 @@ export const CategoryListing: React.FC = () => {
                     <div className="flex-1">
                         <div className="flex items-center justify-between mb-8">
                             <h2 className="text-2xl font-bold text-gray-900">{filteredPlaces.length} Results Found</h2>
-                            <div className="flex items-center gap-2 text-sm font-medium text-gray-600 bg-white px-4 py-2 rounded-lg border border-gray-200 cursor-pointer hover:border-gray-300">
-                                Sort by: Recommended <ChevronDown size={14} />
+                            <div className="flex items-center gap-3">
+                                {/* View Toggle */}
+                                <div className="flex items-center bg-white rounded-lg border border-gray-200 p-1">
+                                    <button
+                                        onClick={() => setViewMode('grid')}
+                                        className={`p-2 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 ${viewMode === 'grid' ? 'bg-gray-100 text-gray-900' : 'text-gray-500 hover:text-gray-700'
+                                            }`}
+                                        aria-label="Grid view"
+                                    >
+                                        <Grid size={18} />
+                                    </button>
+                                    <button
+                                        onClick={() => setViewMode('map')}
+                                        className={`p-2 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 ${viewMode === 'map' ? 'bg-gray-100 text-gray-900' : 'text-gray-500 hover:text-gray-700'
+                                            }`}
+                                        aria-label="Map view"
+                                    >
+                                        <Map size={18} />
+                                    </button>
+                                </div>
+                                <div className="flex items-center gap-2 text-sm font-medium text-gray-600 bg-white px-4 py-2 rounded-lg border border-gray-200 cursor-pointer hover:border-gray-300">
+                                    Sort by: Recommended <ChevronDown size={14} />
+                                </div>
                             </div>
                         </div>
 
-                        <div className="grid md:grid-cols-2 gap-6">
-                            {filteredPlaces.map(place => (
-                                <Link to={`/place/${place.id}`} key={place.id} className="block group">
-                                    <MediaCard
-                                        place={place}
-                                        variant="glass" // Use glass variant for premium look
-                                        className="h-full hover:shadow-xl transition-shadow duration-300"
-                                    />
-                                </Link>
-                            ))}
-                        </div>
+                        {/* Map View Placeholder */}
+                        {viewMode === 'map' && (
+                            <div className="h-[500px] bg-gray-100 rounded-3xl flex items-center justify-center mb-8 border border-gray-200">
+                                <div className="text-center">
+                                    <Map size={48} className="mx-auto mb-4 text-gray-400" />
+                                    <p className="text-gray-600 font-medium">Map view coming soon</p>
+                                    <p className="text-gray-400 text-sm">Interactive map with all locations</p>
+                                </div>
+                            </div>
+                        )}
+
+                        {/* Grid View */}
+                        {viewMode === 'grid' && (
+                            <>
+                                <div className="grid md:grid-cols-2 gap-6">
+                                    {paginatedPlaces.map(place => (
+                                        <Link to={`/place/${place.id}`} key={place.id} className="block group">
+                                            <MediaCard
+                                                place={place}
+                                                variant="light"
+                                                className="h-full hover:shadow-xl transition-shadow duration-300"
+                                            />
+                                        </Link>
+                                    ))}
+                                </div>
+
+                                {/* Pagination */}
+                                {totalPages > 1 && (
+                                    <div className="flex items-center justify-center gap-2 mt-12">
+                                        <button
+                                            onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
+                                            disabled={currentPage === 1}
+                                            className="flex items-center gap-1 px-4 py-2 rounded-lg border border-gray-200 text-gray-600 font-medium hover:border-gray-300 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        >
+                                            <ChevronLeft size={16} /> Previous
+                                        </button>
+                                        <div className="flex items-center gap-1">
+                                            {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
+                                                <button
+                                                    key={page}
+                                                    onClick={() => setCurrentPage(page)}
+                                                    className={`w-10 h-10 rounded-lg font-medium transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 ${page === currentPage
+                                                            ? 'bg-black text-white'
+                                                            : 'text-gray-600 hover:bg-gray-100'
+                                                        }`}
+                                                >
+                                                    {page}
+                                                </button>
+                                            ))}
+                                        </div>
+                                        <button
+                                            onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
+                                            disabled={currentPage === totalPages}
+                                            className="flex items-center gap-1 px-4 py-2 rounded-lg border border-gray-200 text-gray-600 font-medium hover:border-gray-300 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        >
+                                            Next <ChevronRight size={16} />
+                                        </button>
+                                    </div>
+                                )}
+                            </>
+                        )}
 
                         {filteredPlaces.length === 0 && (
                             <div className="text-center py-20 bg-gray-50 rounded-3xl border border-dashed border-gray-200">
                                 <p className="text-gray-500">No places found matching your filters.</p>
-                                <button onClick={() => setPriceFilter(null)} className="mt-4 text-indigo-600 font-medium hover:underline">Clear all filters</button>
+                                <button onClick={() => setPriceFilter(null)} className="mt-4 text-indigo-600 font-medium hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-2 py-1">Clear all filters</button>
                             </div>
                         )}
                     </div>
