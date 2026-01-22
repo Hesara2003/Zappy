@@ -7,6 +7,10 @@ import { LoggedInView } from './components/home/LoggedInView';
 import { MobileNav } from './components/MobileNav';
 import { CategoryListing } from './pages/CategoryListing';
 import PlaceDetail from './pages/PlaceDetail';
+import { Categories } from './pages/Categories';
+import { Search } from './pages/Search';
+import { Saved } from './pages/Saved';
+import { Profile } from './pages/Profile';
 
 const HomePage: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
