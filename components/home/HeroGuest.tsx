@@ -20,7 +20,7 @@ export const HeroGuest: React.FC = () => {
           <div className="max-w-7xl mx-auto px-4 mb-8">
             <div className="bg-[#1e2336]/60 backdrop-blur-md rounded-full text-xs md:text-sm py-2 px-4 flex justify-between items-center w-full md:w-fit md:mx-auto border border-white/10">
               <div className="flex gap-3 items-center text-center">
-                <span className="font-medium opacity-90 truncate">The Zoom Solopreneur 50 is now accepting nominations</span>
+                <span className="font-medium opacity-90 truncate">The Zappy Solopreneur 50 is now accepting nominations</span>
                 <a href="#" className="font-bold hover:text-blue-300 whitespace-nowrap flex items-center">
                   Learn more <ChevronRight size={12} className="ml-1" />
                 </a>
@@ -44,7 +44,7 @@ export const HeroGuest: React.FC = () => {
           </h1>
 
           <p className="text-lg md:text-xl text-blue-100/90 max-w-3xl mx-auto mb-10 font-medium leading-relaxed">
-            Whether you're chatting with teammates or supporting customers, Zoom makes it easier to
+            Whether you're chatting with teammates or supporting customers, Zappy makes it easier to
             connect, collaborate, and reach goals — all with built-in AI doing the heavy lifting.
           </p>
 
