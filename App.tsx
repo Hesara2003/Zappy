@@ -40,6 +40,10 @@ const App: React.FC = () => {
         <Route path="/" element={<HomePage />} />
         <Route path="/category/:slug" element={<CategoryListing />} />
         <Route path="/place/:id" element={<PlaceDetail />} />
+        <Route path="/categories" element={<Categories />} />
+        <Route path="/search" element={<Search />} />
+        <Route path="/saved" element={<Saved />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </BrowserRouter>
   );
