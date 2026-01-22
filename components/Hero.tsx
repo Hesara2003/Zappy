@@ -24,7 +24,10 @@ export const Hero: React.FC = () => {
 
       {/* Main Hero Content */}
       <div className="pt-16 pb-64 md:pt-24 md:pb-80 px-4 text-center max-w-5xl mx-auto relative z-10">
-        <h1 className="text-4xl md:text-6xl lg:text-[5.5rem] leading-[1.1] mb-8 tracking-tight">
+        <h1
+          className="text-4xl md:text-6xl lg:text-[5.5rem] leading-[1.1] mb-8 tracking-tight"
+          style={{ textShadow: '0 0 40px rgba(255, 255, 255, 0.4)' }}
+        >
           Find out what's possible<br /> when work connects
         </h1>
 
