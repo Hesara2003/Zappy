@@ -10,10 +10,10 @@ export const Hero: React.FC = () => {
       {showBanner && (
         <div className="bg-[#00053d]/30 backdrop-blur-sm text-xs md:text-sm py-2 px-4 flex justify-between items-center w-full relative z-30">
           <div className="mx-auto flex gap-2 text-center">
-            <span className="font-normal opacity-90">The Zoom Solopreneur 50 is now accepting nominations</span>
+            <span className="font-normal opacity-90">The Zappy Solopreneur 50 is now accepting nominations</span>
             <a href="#" className="underline font-semibold hover:text-blue-200">Learn more</a>
           </div>
-          <button 
+          <button
             onClick={() => setShowBanner(false)}
             className="absolute right-4 hover:bg-white/10 p-1 rounded transition-colors"
           >
@@ -27,9 +27,9 @@ export const Hero: React.FC = () => {
         <h1 className="text-4xl md:text-6xl lg:text-[5.5rem] font-bold leading-[1.1] mb-8 tracking-tight">
           Find out what's possible<br /> when work connects
         </h1>
-        
+
         <p className="text-lg md:text-xl text-blue-50 max-w-3xl mx-auto mb-10 font-medium leading-relaxed">
-          Whether you're chatting with teammates or supporting customers, Zoom makes it easier to 
+          Whether you're chatting with teammates or supporting customers, Zappy makes it easier to
           connect, collaborate, and reach goals — all with built-in AI doing the heavy lifting.
         </p>
 
