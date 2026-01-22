@@ -42,15 +42,15 @@ export const Header: React.FC<HeaderProps> = ({ isLoggedIn, toggleLogin }) => {
       `}>
         {/* Logo */}
         <div className="flex items-center gap-8">
-          <Link to="/" className="flex items-center gap-2 group pl-2">
+          <Link to="/" className="flex items-center gap-2 group pl-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-lg">
             <span className="text-2xl font-bold tracking-tight" style={{ color: logoColor }}>zappy</span>
           </Link>
 
           {!isLoggedIn && (
-            <nav className="hidden lg:flex items-center gap-6 text-[14px] font-medium opacity-80">
-              <Link to="/categories" className="hover:text-blue-400 transition-colors hover:opacity-100">Categories</Link>
-              <Link to="/saved" className="hover:text-blue-400 transition-colors hover:opacity-100">Saved</Link>
-              <Link to="/search" className="hover:text-blue-400 transition-colors hover:opacity-100">Search</Link>
+            <nav className="hidden lg:flex items-center gap-6 text-[14px] font-medium" aria-label="Main navigation">
+              <Link to="/categories" className="text-gray-200 hover:text-blue-400 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-2 py-1">Categories</Link>
+              <Link to="/saved" className="text-gray-200 hover:text-blue-400 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-2 py-1">Saved</Link>
+              <Link to="/search" className="text-gray-200 hover:text-blue-400 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-2 py-1">Search</Link>
             </nav>
           )}
         </div>
@@ -60,7 +60,7 @@ export const Header: React.FC<HeaderProps> = ({ isLoggedIn, toggleLogin }) => {
           <div className="hidden md:flex items-center gap-1">
             <button
               onClick={toggleLogin}
-              className={`text-[13px] font-bold px-5 py-2.5 rounded-full border transition-all ${isGuest
+              className={`text-[13px] font-bold px-5 py-2.5 rounded-full border transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${isGuest
                 ? 'text-white border-white/20 hover:bg-white/10 hover:border-white/40'
                 : 'text-[#0b5cff] border-[#0b5cff]/30 hover:bg-blue-50'
                 }`}
@@ -68,12 +68,12 @@ export const Header: React.FC<HeaderProps> = ({ isLoggedIn, toggleLogin }) => {
               {isLoggedIn ? 'Sign Out' : 'Sign In'}
             </button>
             {!isLoggedIn && (
-              <button className="bg-[#0b5cff] text-white px-5 py-2.5 rounded-full font-bold hover:bg-[#004ad7] transition-all text-[13px] shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 hover:-translate-y-0.5">
+              <button className="bg-[#0b5cff] text-white px-5 py-2.5 rounded-full font-bold hover:bg-[#004ad7] transition-all text-[13px] shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-500">
                 Sign Up Free
               </button>
             )}
             {isLoggedIn && (
-              <Link to="/profile">
+              <Link to="/profile" aria-label="Your profile" className="focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-full">
                 <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-blue-500 to-purple-500 p-[2px] cursor-pointer hover:scale-105 transition-transform">
                   <img src="https://i.pravatar.cc/150?img=32" className="w-full h-full rounded-full border-2 border-white" alt="Profile" />
                 </div>
