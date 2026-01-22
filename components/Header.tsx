@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, Search, X } from 'lucide-react';
+import { Search, X } from 'lucide-react';
 
 interface HeaderProps {
   isLoggedIn: boolean;
@@ -18,7 +18,7 @@ export const Header: React.FC<HeaderProps> = ({ isLoggedIn, toggleLogin }) => {
   }, []);
 
   const isGuest = !isLoggedIn;
-  
+
   // Dynamic styles based on state
   const containerStyles = isGuest
     ? 'bg-[#1a1f2e]/70 border-white/10 text-white'
@@ -57,32 +57,28 @@ export const Header: React.FC<HeaderProps> = ({ isLoggedIn, toggleLogin }) => {
         {/* Right Actions */}
         <div className="flex items-center gap-3">
           <div className="hidden md:flex items-center gap-1">
-             <button 
-                onClick={toggleLogin}
-                className={`text-[13px] font-bold px-5 py-2.5 rounded-full border transition-all ${
-                  isGuest 
-                  ? 'text-white border-white/20 hover:bg-white/10 hover:border-white/40' 
-                  : 'text-[#0b5cff] border-[#0b5cff]/30 hover:bg-blue-50'
+            <button
+              onClick={toggleLogin}
+              className={`text-[13px] font-bold px-5 py-2.5 rounded-full border transition-all ${isGuest
+                ? 'text-white border-white/20 hover:bg-white/10 hover:border-white/40'
+                : 'text-[#0b5cff] border-[#0b5cff]/30 hover:bg-blue-50'
                 }`}
-              >
-                {isLoggedIn ? 'Sign Out' : 'Sign In'}
+            >
+              {isLoggedIn ? 'Sign Out' : 'Sign In'}
+            </button>
+            {!isLoggedIn && (
+              <button className="bg-[#0b5cff] text-white px-5 py-2.5 rounded-full font-bold hover:bg-[#004ad7] transition-all text-[13px] shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 hover:-translate-y-0.5">
+                Sign Up Free
               </button>
-              {!isLoggedIn && (
-                <button className="bg-[#0b5cff] text-white px-5 py-2.5 rounded-full font-bold hover:bg-[#004ad7] transition-all text-[13px] shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 hover:-translate-y-0.5">
-                    Sign Up Free
-                </button>
-              )}
-              {isLoggedIn && (
-                  <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-blue-500 to-purple-500 p-[2px] cursor-pointer">
-                      <img src="https://i.pravatar.cc/150?img=32" className="w-full h-full rounded-full border-2 border-white" alt="Profile" />
-                  </div>
-              )}
+            )}
+            {isLoggedIn && (
+              <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-blue-500 to-purple-500 p-[2px] cursor-pointer">
+                <img src="https://i.pravatar.cc/150?img=32" className="w-full h-full rounded-full border-2 border-white" alt="Profile" />
+              </div>
+            )}
           </div>
-          
-          {/* Mobile Menu Toggle (Visible only on mobile) */}
-          <button className={`md:hidden p-2 rounded-full ${isGuest ? 'text-white hover:bg-white/10' : 'text-gray-900 hover:bg-gray-100'}`}>
-            <Menu size={24} />
-          </button>
+
+
         </div>
       </div>
     </header>
