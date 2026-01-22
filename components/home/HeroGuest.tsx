@@ -9,8 +9,8 @@ export const HeroGuest: React.FC = () => {
     <div className="relative bg-black">
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#00053d] via-[#00053d] to-black z-0"></div>
-      
-      <section className="relative z-10 pt-20 pb-4 md:pt-24 md:pb-12 text-white overflow-visible">
+
+      <section className="relative z-10 pt-20 pb-4 md:pt-24 md:pb-12 text-white overflow-hidden">
         {/* Top Promotional Banner */}
         {showBanner && (
           <div className="max-w-7xl mx-auto px-4 mb-8">
@@ -21,7 +21,7 @@ export const HeroGuest: React.FC = () => {
                   Learn more <ChevronRight size={12} className="ml-1" />
                 </a>
               </div>
-              <button 
+              <button
                 onClick={() => setShowBanner(false)}
                 className="ml-4 hover:bg-white/10 p-1 rounded-full transition-colors"
               >
@@ -36,9 +36,9 @@ export const HeroGuest: React.FC = () => {
           <h1 className="text-4xl md:text-6xl lg:text-[5.5rem] font-bold leading-[1.05] mb-8 tracking-[-0.02em]">
             Find out what's possible<br /> when work connects
           </h1>
-          
+
           <p className="text-lg md:text-xl text-blue-100/90 max-w-3xl mx-auto mb-10 font-medium leading-relaxed">
-            Whether you're chatting with teammates or supporting customers, Zoom makes it easier to 
+            Whether you're chatting with teammates or supporting customers, Zoom makes it easier to
             connect, collaborate, and reach goals — all with built-in AI doing the heavy lifting.
           </p>
 
@@ -54,7 +54,7 @@ export const HeroGuest: React.FC = () => {
 
         {/* Carousel Section */}
         <div className="w-full pb-20">
-           <Carousel />
+          <Carousel />
         </div>
       </section>
     </div>

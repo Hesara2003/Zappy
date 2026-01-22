@@ -60,8 +60,8 @@ export const Carousel: React.FC = () => {
       const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
       setCanScrollLeft(scrollLeft > 0);
       setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
-      
-      const index = Math.round(scrollLeft / 376); 
+
+      const index = Math.round(scrollLeft / 376);
       setActiveIndex(index);
     }
   };
@@ -74,27 +74,27 @@ export const Carousel: React.FC = () => {
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollRef.current) {
-      const scrollAmount = 376; 
+      const scrollAmount = 376;
       scrollRef.current.scrollBy({
         left: direction === 'left' ? -scrollAmount : scrollAmount,
         behavior: 'smooth'
       });
-      setTimeout(checkScroll, 300); 
+      setTimeout(checkScroll, 300);
     }
   };
 
   return (
-    <div className="w-full max-w-[100vw] 2xl:max-w-[1600px] mx-auto z-20 px-0 md:px-4">
-      
+    <div className="w-full 2xl:max-w-[1600px] mx-auto z-20 px-0">
+
       {/* Scroll Container */}
-      <div 
+      <div
         ref={scrollRef}
-        className="flex gap-4 md:gap-6 overflow-x-auto no-scrollbar py-12 px-6 md:px-8 snap-x"
+        className="flex gap-4 md:gap-6 overflow-x-auto no-scrollbar py-12 px-0 snap-x"
         onScroll={checkScroll}
       >
         {CARDS.map((card) => (
-          <div key={card.id} className="snap-center md:snap-start first:ml-0 md:first:ml-8">
-             <FeatureCard data={card} />
+          <div key={card.id} className="snap-center md:snap-start">
+            <FeatureCard data={card} />
           </div>
         ))}
         {/* Spacer for right padding */}
@@ -104,49 +104,46 @@ export const Carousel: React.FC = () => {
       {/* Controls */}
       <div className="flex justify-between items-center px-8 mt-0 max-w-[1300px] mx-auto hidden md:flex">
         <div>
-            <button 
-                onClick={() => scroll('left')}
-                disabled={!canScrollLeft}
-                className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-200 border border-white/20 ${
-                    canScrollLeft 
-                    ? 'bg-white/10 text-white hover:bg-white/20 cursor-pointer' 
-                    : 'bg-transparent text-white/30 cursor-not-allowed border-white/10'
-                }`}
-            >
-                <ArrowLeft size={20} strokeWidth={2.5} />
-            </button>
+          <button
+            onClick={() => scroll('left')}
+            disabled={!canScrollLeft}
+            className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-200 border border-white/20 ${canScrollLeft
+              ? 'bg-white/10 text-white hover:bg-white/20 cursor-pointer'
+              : 'bg-transparent text-white/30 cursor-not-allowed border-white/10'
+              }`}
+          >
+            <ArrowLeft size={20} strokeWidth={2.5} />
+          </button>
         </div>
 
         <div className="flex gap-3">
-             {CARDS.map((_, idx) => (
-                 <div 
-                    key={idx} 
-                    className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
-                        activeIndex === idx 
-                        ? 'bg-white w-8' 
-                        : 'bg-white/30 w-2.5 hover:bg-white/50'
-                    }`}
-                    onClick={() => {
-                        if (scrollRef.current) {
-                            scrollRef.current.scrollTo({ left: idx * 376, behavior: 'smooth' });
-                        }
-                    }}
-                 />
-             ))}
+          {CARDS.map((_, idx) => (
+            <div
+              key={idx}
+              className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${activeIndex === idx
+                ? 'bg-white w-8'
+                : 'bg-white/30 w-2.5 hover:bg-white/50'
+                }`}
+              onClick={() => {
+                if (scrollRef.current) {
+                  scrollRef.current.scrollTo({ left: idx * 376, behavior: 'smooth' });
+                }
+              }}
+            />
+          ))}
         </div>
 
         <div>
-            <button 
-                onClick={() => scroll('right')}
-                disabled={!canScrollRight}
-                className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-200 border border-white/20 ${
-                    canScrollRight 
-                    ? 'bg-white/10 text-white hover:bg-white/20 cursor-pointer' 
-                    : 'bg-transparent text-white/30 cursor-not-allowed border-white/10'
-                }`}
-            >
-                <ArrowRight size={20} strokeWidth={2.5} />
-            </button>
+          <button
+            onClick={() => scroll('right')}
+            disabled={!canScrollRight}
+            className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-200 border border-white/20 ${canScrollRight
+              ? 'bg-white/10 text-white hover:bg-white/20 cursor-pointer'
+              : 'bg-transparent text-white/30 cursor-not-allowed border-white/10'
+              }`}
+          >
+            <ArrowRight size={20} strokeWidth={2.5} />
+          </button>
         </div>
 
       </div>
