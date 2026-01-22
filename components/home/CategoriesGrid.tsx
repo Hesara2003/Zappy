@@ -3,6 +3,7 @@ import { SectionHeading } from '../ui/SectionHeading';
 import { CATEGORIES } from '../../data/mockData';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { RevealOnScroll } from '../ui/RevealOnScroll';
 
 export const CategoriesGrid: React.FC = () => {
   return (
@@ -10,7 +11,7 @@ export const CategoriesGrid: React.FC = () => {
       {/* Ambient Glow */}
       <div className="absolute top-1/2 left-1/4 w-[500px] h-[500px] bg-blue-900/20 rounded-full blur-[128px] pointer-events-none -translate-y-1/2"></div>
 
-      <div className="max-w-[1400px] mx-auto relative z-10">
+      <RevealOnScroll className="max-w-[1400px] mx-auto relative z-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <SectionHeading
             title="Explore by Category"
@@ -82,7 +83,7 @@ export const CategoriesGrid: React.FC = () => {
         <Link to="/categories" className="md:hidden mt-8 w-full flex items-center justify-center gap-2 px-6 py-4 rounded-full border border-white/10 hover:bg-white/5 transition-all text-white font-medium">
           View all categories <ArrowRight size={18} />
         </Link>
-      </div>
+      </RevealOnScroll>
     </section>
   );
 };
