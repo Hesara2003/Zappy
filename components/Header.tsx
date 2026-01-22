@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Search, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 interface HeaderProps {
   isLoggedIn: boolean;
@@ -41,15 +42,15 @@ export const Header: React.FC<HeaderProps> = ({ isLoggedIn, toggleLogin }) => {
       `}>
         {/* Logo */}
         <div className="flex items-center gap-8">
-          <a href="#" className="flex items-center gap-2 group pl-2">
+          <Link to="/" className="flex items-center gap-2 group pl-2">
             <span className="text-2xl font-bold tracking-tight" style={{ color: logoColor }}>zappy</span>
-          </a>
+          </Link>
 
           {!isLoggedIn && (
             <nav className="hidden lg:flex items-center gap-6 text-[14px] font-medium opacity-80">
-              <a href="#" className="hover:text-blue-400 transition-colors hover:opacity-100">Products</a>
-              <a href="#" className="hover:text-blue-400 transition-colors hover:opacity-100">Solutions</a>
-              <a href="#" className="hover:text-blue-400 transition-colors hover:opacity-100">Pricing</a>
+              <Link to="/categories" className="hover:text-blue-400 transition-colors hover:opacity-100">Categories</Link>
+              <Link to="/saved" className="hover:text-blue-400 transition-colors hover:opacity-100">Saved</Link>
+              <Link to="/search" className="hover:text-blue-400 transition-colors hover:opacity-100">Search</Link>
             </nav>
           )}
         </div>
@@ -72,9 +73,11 @@ export const Header: React.FC<HeaderProps> = ({ isLoggedIn, toggleLogin }) => {
               </button>
             )}
             {isLoggedIn && (
-              <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-blue-500 to-purple-500 p-[2px] cursor-pointer">
-                <img src="https://i.pravatar.cc/150?img=32" className="w-full h-full rounded-full border-2 border-white" alt="Profile" />
-              </div>
+              <Link to="/profile">
+                <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-blue-500 to-purple-500 p-[2px] cursor-pointer hover:scale-105 transition-transform">
+                  <img src="https://i.pravatar.cc/150?img=32" className="w-full h-full rounded-full border-2 border-white" alt="Profile" />
+                </div>
+              </Link>
             )}
           </div>
 
