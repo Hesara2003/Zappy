@@ -5,6 +5,7 @@ import { CATEGORIES } from '../data/mockData';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { SectionHeading } from '../components/ui/SectionHeading';
+import { RevealOnScroll } from '../components/ui/RevealOnScroll';
 
 export const Categories: React.FC = () => {
     return (
@@ -12,6 +13,8 @@ export const Categories: React.FC = () => {
             <Header isLoggedIn={false} toggleLogin={() => { }} />
 
             <main className="flex-1 pt-32 pb-24 px-6 max-w-[1400px] mx-auto w-full">
+
+
                 <div className="mb-12">
                     <SectionHeading
                         title="All Categories"
@@ -20,7 +23,7 @@ export const Categories: React.FC = () => {
                     />
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <RevealOnScroll className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" delay={100}>
                     {CATEGORIES.map((cat) => (
                         <Link
                             to={`/category/${cat.slug}`}
@@ -61,7 +64,7 @@ export const Categories: React.FC = () => {
                             </div>
                         </Link>
                     ))}
-                </div>
+                </RevealOnScroll>
             </main>
 
             <Footer />

@@ -4,6 +4,7 @@ import { Footer } from '../components/Footer';
 import { Search as SearchIcon, MapPin, ArrowRight, TrendingUp } from 'lucide-react';
 import { MediaCard } from '../components/ui/MediaCard';
 import { PLACES_DATA } from '../data/mockData';
+import { RevealOnScroll } from '../components/ui/RevealOnScroll';
 
 export const Search: React.FC = () => {
     // Get some mock data for recommendations (flattening the PLACES_DATA object)
@@ -17,7 +18,9 @@ export const Search: React.FC = () => {
             <Header isLoggedIn={false} toggleLogin={() => { }} />
             <main className="flex-1 pt-32 px-6 max-w-[1400px] mx-auto w-full pb-20">
 
-                <div className="max-w-4xl mx-auto text-center mb-12">
+
+
+                <RevealOnScroll className="max-w-4xl mx-auto text-center mb-12">
                     <h1 className="text-4xl md:text-5xl font-bold mb-6 text-[#00053d]">What are you looking for?</h1>
                     <p className="text-lg text-gray-500 mb-8">Discover top-rated places, local favorites, and hidden gems.</p>
 
@@ -44,10 +47,10 @@ export const Search: React.FC = () => {
                             Search
                         </button>
                     </div>
-                </div>
+                </RevealOnScroll>
 
                 {/* Recent Searches / Trends */}
-                <div className="max-w-4xl mx-auto mb-20 text-center">
+                <RevealOnScroll className="max-w-4xl mx-auto mb-20 text-center" delay={100}>
                     <div className="flex items-center justify-center gap-2 mb-4 text-sm font-semibold text-gray-400 uppercase tracking-wider">
                         <TrendingUp size={14} /> Trending Searches
                     </div>
@@ -58,10 +61,10 @@ export const Search: React.FC = () => {
                             </button>
                         ))}
                     </div>
-                </div>
+                </RevealOnScroll>
 
                 {/* Recommended Section */}
-                <div>
+                <RevealOnScroll delay={200}>
                     <div className="flex items-center justify-between mb-8">
                         <h2 className="text-2xl font-bold text-[#00053d]">Recommended for you</h2>
                         <button className="text-[#0b5cff] font-semibold hover:text-blue-700 flex items-center gap-1">
@@ -79,7 +82,7 @@ export const Search: React.FC = () => {
                             />
                         ))}
                     </div>
-                </div>
+                </RevealOnScroll>
 
             </main>
             <Footer />

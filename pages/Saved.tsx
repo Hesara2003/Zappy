@@ -4,6 +4,7 @@ import { Footer } from '../components/Footer';
 import { Heart, Sparkles } from 'lucide-react';
 import { PLACES_DATA } from '../data/mockData';
 import { MediaCard } from '../components/ui/MediaCard';
+import { RevealOnScroll } from '../components/ui/RevealOnScroll';
 
 export const Saved: React.FC = () => {
     // Mock suggestions
@@ -13,8 +14,10 @@ export const Saved: React.FC = () => {
         <div className="min-h-screen bg-[#fafcff] flex flex-col relative">
             <Header isLoggedIn={false} toggleLogin={() => { }} />
 
+
+
             <main className="flex-1 pt-32 px-6 max-w-[1400px] mx-auto w-full pb-20">
-                <div className="flex items-center gap-4 mb-10">
+                <RevealOnScroll className="flex items-center gap-4 mb-10">
                     <div className="w-14 h-14 rounded-2xl bg-red-50 flex items-center justify-center shadow-sm border border-red-100">
                         <Heart className="text-red-500 fill-red-500" size={28} />
                     </div>
@@ -22,10 +25,10 @@ export const Saved: React.FC = () => {
                         <h1 className="text-4xl font-bold text-[#00053d]">Saved Places</h1>
                         <p className="text-gray-500 font-medium">Your personal collection of favorites</p>
                     </div>
-                </div>
+                </RevealOnScroll>
 
                 {/* Empty State / List */}
-                <div className="bg-white rounded-[32px] p-16 text-center border border-gray-100 shadow-sm mb-16 relative overflow-hidden">
+                <RevealOnScroll className="bg-white rounded-[32px] p-16 text-center border border-gray-100 shadow-sm mb-16 relative overflow-hidden" delay={100}>
                     <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-red-400 to-pink-500"></div>
 
                     <div className="relative z-10">
@@ -47,10 +50,10 @@ export const Saved: React.FC = () => {
                     {/* Decorative Background Elements */}
                     <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-blue-50 rounded-full mix-blend-multiply filter blur-3xl opacity-50"></div>
                     <div className="absolute -top-20 -right-20 w-64 h-64 bg-pink-50 rounded-full mix-blend-multiply filter blur-3xl opacity-50"></div>
-                </div>
+                </RevealOnScroll>
 
                 {/* Suggestions */}
-                <div>
+                <RevealOnScroll delay={200}>
                     <div className="flex items-center gap-2 mb-8">
                         <Sparkles className="text-amber-500" size={20} />
                         <h2 className="text-2xl font-bold text-[#00053d]">Suggested for you</h2>
@@ -68,7 +71,7 @@ export const Saved: React.FC = () => {
                             )
                         ))}
                     </div>
-                </div>
+                </RevealOnScroll>
 
             </main>
             <Footer />

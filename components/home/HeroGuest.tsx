@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { X, ChevronRight } from 'lucide-react';
 import { Carousel } from '../Carousel';
+import { RevealOnScroll } from '../ui/RevealOnScroll';
 
 export const HeroGuest: React.FC = () => {
   const [showBanner, setShowBanner] = useState(true);
@@ -34,8 +35,10 @@ export const HeroGuest: React.FC = () => {
           </div>
         )}
 
+
+
         {/* Main Hero Content */}
-        <div className="px-4 text-center max-w-[1200px] mx-auto mb-16 md:mb-24">
+        <RevealOnScroll className="px-4 text-center max-w-[1200px] mx-auto mb-16 md:mb-24">
           <h1 className="text-4xl md:text-6xl lg:text-[5.5rem] font-bold leading-[1.05] mb-8 tracking-[-0.02em]">
             Find out what's possible<br /> when work connects
           </h1>
@@ -53,7 +56,7 @@ export const HeroGuest: React.FC = () => {
               Find your plan
             </button>
           </div>
-        </div>
+        </RevealOnScroll>
 
         {/* Carousel Section */}
         <div className="w-full pb-20">
