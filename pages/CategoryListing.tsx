@@ -1,39 +1,64 @@
 
 import React, { useMemo, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { CATEGORIES, PLACES_DATA } from '../data/mockData';
 
 import { Footer } from '../components/Footer';
 import { MediaCard } from '../components/ui/MediaCard';
+import { Breadcrumbs } from '../components/ui/Breadcrumbs';
 import { SectionHeading } from '../components/ui/SectionHeading';
-import { Filter, Star, MapPin, DollarSign, SlidersHorizontal, ChevronDown, Utensils, BookOpen } from 'lucide-react';
+import { Star, MapPin, DollarSign, SlidersHorizontal, ChevronDown, Utensils, BookOpen, ArrowLeft, Map, Grid, ChevronLeft, ChevronRight } from 'lucide-react';
+
+const ITEMS_PER_PAGE = 8;
 
 export const CategoryListing: React.FC = () => {
     const { slug } = useParams<{ slug: string }>();
+    const navigate = useNavigate();
     const category = CATEGORIES.find(c => c.slug === slug);
     const places = slug && PLACES_DATA[slug] ? PLACES_DATA[slug] : [];
     const [priceFilter, setPriceFilter] = useState<string | null>(null);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [viewMode, setViewMode] = useState<'grid' | 'map'>('grid');
 
     // Mock filtering logic - extensible
     const filteredPlaces = useMemo(() => {
         if (!priceFilter) return places;
         return places.filter(p => p.priceRange?.includes(priceFilter));
-        // Add more filters here
     }, [places, priceFilter]);
+
+    // Pagination
+    const totalPages = Math.ceil(filteredPlaces.length / ITEMS_PER_PAGE);
+    const paginatedPlaces = useMemo(() => {
+        const start = (currentPage - 1) * ITEMS_PER_PAGE;
+        return filteredPlaces.slice(start, start + ITEMS_PER_PAGE);
+    }, [filteredPlaces, currentPage]);
 
     if (!category) {
         return <div className="min-h-screen flex items-center justify-center bg-black text-white">Category not found</div>;
     }
 
+    const breadcrumbItems = [
+        { label: 'Categories', href: '/categories' },
+        { label: category.name }
+    ];
+
     return (
         <div className="min-h-screen bg-[#fafcff] flex flex-col relative">
-            {/* Header removed */}
-
             {/* Header Banner */}
             <div className={`relative h-[400px] w-full overflow-hidden`}>
                 <img src={category.image} loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-r from-[#000428]/90 to-[#004e92]/80 mix-blend-multiply"></div>
                 <div className="absolute inset-0 bg-black/40"></div>
+
+                {/* Back Button */}
+                <button
+                    onClick={() => navigate(-1)}
+                    className="absolute top-24 left-6 z-20 flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm font-medium hover:bg-white/20 transition-all focus:outline-none focus:ring-2 focus:ring-white"
+                    aria-label="Go back"
+                >
+                    <ArrowLeft size={16} />
+                    Back
+                </button>
 
                 <div className="relative z-10 h-full max-w-[1400px] mx-auto px-6 flex flex-col justify-center text-white">
                     <div className="flex items-center gap-3 mb-4">
