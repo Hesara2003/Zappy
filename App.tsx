@@ -12,13 +12,12 @@ import { Search } from './pages/Search';
 import { Saved } from './pages/Saved';
 import { Profile } from './pages/Profile';
 
-const HomePage: React.FC = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+interface HomePageProps {
+  isLoggedIn: boolean;
+  toggleLogin: () => void;
+}
 
-  const toggleLogin = () => {
-    setIsLoggedIn(!isLoggedIn);
-  };
-
+const HomePage: React.FC<HomePageProps> = ({ isLoggedIn, toggleLogin }) => {
   return (
     <div className="min-h-screen bg-[#fafcff] flex flex-col relative">
       <Header isLoggedIn={isLoggedIn} toggleLogin={toggleLogin} />
@@ -28,16 +27,21 @@ const HomePage: React.FC = () => {
       </main>
 
       <Footer />
-      <MobileNav isLoggedIn={isLoggedIn} />
     </div>
   );
 };
 
 const App: React.FC = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const toggleLogin = () => {
+    setIsLoggedIn(!isLoggedIn);
+  };
+
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<HomePage isLoggedIn={isLoggedIn} toggleLogin={toggleLogin} />} />
         <Route path="/category/:slug" element={<CategoryListing />} />
         <Route path="/place/:id" element={<PlaceDetail />} />
         <Route path="/categories" element={<Categories />} />
@@ -45,6 +49,7 @@ const App: React.FC = () => {
         <Route path="/saved" element={<Saved />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>
+      <MobileNav isLoggedIn={isLoggedIn} />
     </BrowserRouter>
   );
 };

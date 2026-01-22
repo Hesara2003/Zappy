@@ -72,9 +72,9 @@ export const FeaturedPlacesSection: React.FC = () => {
         </div>
 
         {/* Layout: Main Feature + Sidebar List */}
-        <div className="grid lg:grid-cols-12 gap-6 h-auto lg:h-[600px]">
+        <div className="flex flex-col lg:grid lg:grid-cols-12 gap-6 h-auto lg:h-[600px]">
           {/* Main Feature (Left) */}
-          <div className="lg:col-span-7 xl:col-span-8 h-[500px] lg:h-full">
+          <div className="lg:col-span-7 xl:col-span-8 h-[400px] lg:h-full w-full">
             <MediaCard
               place={FEATURED[0]}
               variant="dark"
@@ -84,7 +84,7 @@ export const FeaturedPlacesSection: React.FC = () => {
           </div>
 
           {/* Side List (Right) */}
-          <div className="lg:col-span-5 xl:col-span-4 flex flex-col gap-4 h-full">
+          <div className="lg:col-span-5 xl:col-span-4 flex flex-col gap-4 h-full w-full">
             {FEATURED.slice(1, 4).map((place) => (
               <div key={place.id} className="flex-1 min-h-[140px]">
                 <MediaCard
