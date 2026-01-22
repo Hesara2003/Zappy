@@ -31,7 +31,7 @@ export const CategoryListing: React.FC = () => {
 
             {/* Header Banner */}
             <div className={`relative h-[400px] w-full overflow-hidden`}>
-                <img src={category.image} className="absolute inset-0 w-full h-full object-cover" />
+                <img src={category.image} loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-r from-[#000428]/90 to-[#004e92]/80 mix-blend-multiply"></div>
                 <div className="absolute inset-0 bg-black/40"></div>
 
