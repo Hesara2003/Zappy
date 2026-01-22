@@ -34,25 +34,45 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isLoggedIn }) => {
                     : 'bg-white/90 border-white/50 shadow-blue-900/10'
                 }
         `}>
-                <Link to="/" className={`flex flex-col items-center gap-1 transition-all ${getIconClass('/')}`}>
+                <Link
+                    to="/"
+                    aria-label="Home"
+                    className={`flex flex-col items-center gap-1 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-lg p-1 ${getIconClass('/')}`}
+                >
                     <Home size={22} />
                 </Link>
 
-                <Link to="/categories" className={`flex flex-col items-center gap-1 transition-all ${getIconClass('/categories')}`}>
+                <Link
+                    to="/categories"
+                    aria-label="Explore categories"
+                    className={`flex flex-col items-center gap-1 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-lg p-1 ${getIconClass('/categories')}`}
+                >
                     <Compass size={22} />
                 </Link>
 
                 <div className="relative -top-6">
-                    <Link to="/search" className="w-14 h-14 rounded-full bg-[#0b5cff] text-white flex items-center justify-center shadow-lg shadow-blue-500/40 hover:scale-105 transition-transform">
+                    <Link
+                        to="/search"
+                        aria-label="Search"
+                        className="w-14 h-14 rounded-full bg-[#0b5cff] text-white flex items-center justify-center shadow-lg shadow-blue-500/40 hover:scale-105 transition-transform focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-500"
+                    >
                         <Search size={24} strokeWidth={2.5} />
                     </Link>
                 </div>
 
-                <Link to="/saved" className={`flex flex-col items-center gap-1 transition-all ${getIconClass('/saved')}`}>
+                <Link
+                    to="/saved"
+                    aria-label="Saved places"
+                    className={`flex flex-col items-center gap-1 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-lg p-1 ${getIconClass('/saved')}`}
+                >
                     <Heart size={22} />
                 </Link>
 
-                <Link to="/profile" className={`flex flex-col items-center gap-1 transition-all ${getIconClass('/profile')}`}>
+                <Link
+                    to="/profile"
+                    aria-label="Your profile"
+                    className={`flex flex-col items-center gap-1 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-lg p-1 ${getIconClass('/profile')}`}
+                >
                     <User size={22} />
                 </Link>
             </div>

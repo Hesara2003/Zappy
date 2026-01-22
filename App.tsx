@@ -7,6 +7,9 @@ import { LoggedInView } from './components/home/LoggedInView';
 import { MobileNav } from './components/MobileNav';
 import { PageTransition } from './components/ui/PageTransition';
 import { ScrollToTop } from './components/ui/ScrollToTop';
+import { SkipLink } from './components/ui/SkipLink';
+import { ToastProvider } from './components/ui/ToastContext';
+import { ToastContainer } from './components/ui/Toast';
 
 // Lazy load pages for better initial load performance
 const CategoryListing = lazy(() => import('./pages/CategoryListing').then(m => ({ default: m.CategoryListing })));
@@ -37,7 +40,7 @@ const HomePage: React.FC<HomePageProps> = ({ isLoggedIn, toggleLogin }) => {
       <div className="min-h-screen bg-[#fafcff] flex flex-col relative">
         {/* Header removed from here */}
 
-        <main className="flex-1">
+        <main id="main-content" className="flex-1">
           {isLoggedIn ? <LoggedInView /> : <GuestView />}
         </main>
 
@@ -55,62 +58,66 @@ const App: React.FC = () => {
   };
 
   return (
-    <BrowserRouter>
-      <ScrollToTop />
-      <Header isLoggedIn={isLoggedIn} toggleLogin={toggleLogin} />
-      <Routes>
-        <Route path="/" element={<HomePage isLoggedIn={isLoggedIn} toggleLogin={toggleLogin} />} />
+    <ToastProvider>
+      <BrowserRouter>
+        <SkipLink />
+        <ScrollToTop />
+        <Header isLoggedIn={isLoggedIn} toggleLogin={toggleLogin} />
+        <Routes>
+          <Route path="/" element={<HomePage isLoggedIn={isLoggedIn} toggleLogin={toggleLogin} />} />
 
-        <Route path="/category/:slug" element={
-          <Suspense fallback={<PageLoader />}>
-            <PageTransition>
-              <CategoryListing />
-            </PageTransition>
-          </Suspense>
-        } />
+          <Route path="/category/:slug" element={
+            <Suspense fallback={<PageLoader />}>
+              <PageTransition>
+                <CategoryListing />
+              </PageTransition>
+            </Suspense>
+          } />
 
-        <Route path="/place/:id" element={
-          <Suspense fallback={<PageLoader />}>
-            <PageTransition>
-              <PlaceDetail />
-            </PageTransition>
-          </Suspense>
-        } />
+          <Route path="/place/:id" element={
+            <Suspense fallback={<PageLoader />}>
+              <PageTransition>
+                <PlaceDetail />
+              </PageTransition>
+            </Suspense>
+          } />
 
-        <Route path="/categories" element={
-          <Suspense fallback={<PageLoader />}>
-            <PageTransition>
-              <Categories />
-            </PageTransition>
-          </Suspense>
-        } />
+          <Route path="/categories" element={
+            <Suspense fallback={<PageLoader />}>
+              <PageTransition>
+                <Categories />
+              </PageTransition>
+            </Suspense>
+          } />
 
-        <Route path="/search" element={
-          <Suspense fallback={<PageLoader />}>
-            <PageTransition>
-              <Search />
-            </PageTransition>
-          </Suspense>
-        } />
+          <Route path="/search" element={
+            <Suspense fallback={<PageLoader />}>
+              <PageTransition>
+                <Search />
+              </PageTransition>
+            </Suspense>
+          } />
 
-        <Route path="/saved" element={
-          <Suspense fallback={<PageLoader />}>
-            <PageTransition>
-              <Saved />
-            </PageTransition>
-          </Suspense>
-        } />
+          <Route path="/saved" element={
+            <Suspense fallback={<PageLoader />}>
+              <PageTransition>
+                <Saved />
+              </PageTransition>
+            </Suspense>
+          } />
 
-        <Route path="/profile" element={
-          <Suspense fallback={<PageLoader />}>
-            <PageTransition>
-              <Profile />
-            </PageTransition>
-          </Suspense>
-        } />
-      </Routes>
-      <MobileNav isLoggedIn={isLoggedIn} />
-    </BrowserRouter>
+          <Route path="/profile" element={
+            <Suspense fallback={<PageLoader />}>
+              <PageTransition>
+                <Profile />
+              </PageTransition>
+            </Suspense>
+          } />
+        </Routes>
+        <MobileNav isLoggedIn={isLoggedIn} />
+        <ToastContainer />
+      </BrowserRouter>
+    </ToastProvider>
   );
 };
 
