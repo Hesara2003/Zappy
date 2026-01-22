@@ -6,7 +6,7 @@ import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { MapPin, Star, Clock, Globe, Phone, Share2, Heart, CheckCircle2 } from 'lucide-react';
 
-export const PlaceDetail: React.FC = () => {
+const PlaceDetail: React.FC = () => {
     const { id } = useParams<{ id: string }>();
 
     // Find place across all categories
@@ -223,3 +223,5 @@ export const PlaceDetail: React.FC = () => {
         </div>
     );
 };
+
+export default PlaceDetail;

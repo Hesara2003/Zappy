@@ -6,7 +6,7 @@ import { GuestView } from './components/home/GuestView';
 import { LoggedInView } from './components/home/LoggedInView';
 import { MobileNav } from './components/MobileNav';
 import { CategoryListing } from './pages/CategoryListing';
-import { PlaceDetail } from './pages/PlaceDetail';
+import PlaceDetail from './pages/PlaceDetail';
 
 const HomePage: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
