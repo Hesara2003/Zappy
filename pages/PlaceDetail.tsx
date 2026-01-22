@@ -170,7 +170,7 @@ export const PlaceDetail: React.FC = () => {
                         <div className="space-y-4 mb-8">
                             <div className="flex items-center gap-4 text-gray-600">
                                 <Clock className="w-5 h-5" />
-                                <span>Mon - Sun: 9:00 AM - 10:00 PM</span>
+                                <span>{place.openingHours || 'Mon - Sun: 9:00 AM - 10:00 PM'}</span>
                             </div>
                             <div className="flex items-center gap-4 text-gray-600">
                                 <Globe className="w-5 h-5" />
@@ -196,6 +196,27 @@ export const PlaceDetail: React.FC = () => {
                     </div>
                 </div>
 
+            </div>
+
+            {/* Related Items Section */}
+            <div className="max-w-[1400px] mx-auto px-6 pb-24">
+                <h2 className="text-3xl font-bold mb-8">You Might Also Like</h2>
+                <div className="grid md:grid-cols-3 gap-6">
+                    {PLACES_DATA[placeCategory?.slug || 'hotels']
+                        .filter(p => p.id !== place?.id)
+                        .slice(0, 3)
+                        .map(related => (
+                            <Link to={`/place/${related.id}`} key={related.id} className="block group">
+                                <div className="relative h-[240px] rounded-2xl overflow-hidden mb-4">
+                                    <img src={related.image} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
+                                </div>
+                                <h3 className="font-bold text-lg mb-1">{related.title}</h3>
+                                <p className="text-gray-500 text-sm">{related.location}</p>
+                            </Link>
+                        ))
+                    }
+                </div>
             </div>
 
             <Footer />
