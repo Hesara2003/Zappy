@@ -31,9 +31,8 @@ export const CategoryListing: React.FC = () => {
 
             {/* Header Banner */}
             <div className={`relative h-[400px] w-full overflow-hidden`}>
-                <div className={`absolute inset-0 bg-gradient-to-r ${category.color} opacity-90`}></div>
-                <img src={category.image} className="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-50" />
-
+                <img src={category.image} className="absolute inset-0 w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-black/50"></div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30"></div>
 
                 <div className="relative z-10 h-full max-w-[1400px] mx-auto px-6 flex flex-col justify-center text-white">
