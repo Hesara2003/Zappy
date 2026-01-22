@@ -1,5 +1,4 @@
 
-View your app in AI Studio: https://ai.studio/apps/drive/1okYc7fPgJuJgfeI0bOUTY9RxvLM2cj5E
 
 ## Run Locally
 
