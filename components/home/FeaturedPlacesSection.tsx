@@ -50,53 +50,51 @@ const FEATURED: Place[] = [
 export const FeaturedPlacesSection: React.FC = () => {
   return (
     <section className="py-24 px-6 bg-black relative overflow-hidden">
-       {/* Ambient Background */}
-      <div className="absolute right-0 top-0 w-[800px] h-[800px] bg-indigo-900/20 rounded-full blur-[120px] pointer-events-none translate-x-1/3 -translate-y-1/4"></div>
-      <div className="absolute left-0 bottom-0 w-[600px] h-[600px] bg-blue-900/10 rounded-full blur-[100px] pointer-events-none -translate-x-1/4 translate-y-1/4"></div>
-      
+
+
       <div className="max-w-[1400px] mx-auto relative z-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-           <div className="relative">
-               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 font-bold mb-4 text-xs tracking-wider uppercase">
-                   <Flame size={12} className="fill-orange-400 animate-pulse" />
-                   <span>Hot this week</span>
-               </div>
-               <SectionHeading 
-                 title="Trending Near You" 
-                 subtitle="Discover the most popular spots selected by our community editors."
-                 light={true}
-               />
-           </div>
-           
-           <button className="flex items-center gap-2 text-white/70 font-semibold hover:text-white transition-colors mb-12 group bg-white/5 px-6 py-3 rounded-full border border-white/5 hover:border-white/20">
-             View all locations <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
-           </button>
+          <div className="relative">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 font-bold mb-4 text-xs tracking-wider uppercase">
+              <Flame size={12} className="fill-orange-400 animate-pulse" />
+              <span>Hot this week</span>
+            </div>
+            <SectionHeading
+              title="Trending Near You"
+              subtitle="Discover the most popular spots selected by our community editors."
+              light={true}
+            />
+          </div>
+
+          <button className="flex items-center gap-2 text-white/70 font-semibold hover:text-white transition-colors mb-12 group bg-white/5 px-6 py-3 rounded-full border border-white/5 hover:border-white/20">
+            View all locations <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
+          </button>
         </div>
-        
+
         {/* Layout: Main Feature + Sidebar List */}
         <div className="grid lg:grid-cols-12 gap-6 h-auto lg:h-[600px]">
           {/* Main Feature (Left) */}
           <div className="lg:col-span-7 xl:col-span-8 h-[500px] lg:h-full">
-             <MediaCard 
-               place={FEATURED[0]} 
-               variant="dark" 
-               layout="featured" 
-               className="h-full shadow-2xl shadow-blue-900/20"
-             />
+            <MediaCard
+              place={FEATURED[0]}
+              variant="dark"
+              layout="featured"
+              className="h-full shadow-2xl shadow-blue-900/20"
+            />
           </div>
-          
+
           {/* Side List (Right) */}
           <div className="lg:col-span-5 xl:col-span-4 flex flex-col gap-4 h-full">
-              {FEATURED.slice(1, 4).map((place) => (
-                 <div key={place.id} className="flex-1 min-h-[140px]">
-                    <MediaCard 
-                      place={place} 
-                      variant="dark" 
-                      layout="horizontal"
-                      className="h-full"
-                    />
-                 </div>
-              ))}
+            {FEATURED.slice(1, 4).map((place) => (
+              <div key={place.id} className="flex-1 min-h-[140px]">
+                <MediaCard
+                  place={place}
+                  variant="dark"
+                  layout="horizontal"
+                  className="h-full"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>

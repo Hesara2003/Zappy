@@ -19,6 +19,7 @@ export interface Category {
   count: string;
   color: string;
   image?: string;
+  slug: string;
 }
 
 export interface Testimonial {
