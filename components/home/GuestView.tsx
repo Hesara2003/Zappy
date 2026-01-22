@@ -7,12 +7,12 @@ import { CommunityCTA } from './CommunityCTA';
 
 export const GuestView: React.FC = () => {
   return (
-    <>
+    <div className="bg-black">
       <HeroGuest />
       <CategoriesGrid />
       <FeaturedPlacesSection />
       <TestimonialsSection />
       <CommunityCTA />
-    </>
+    </div>
   );
 };
