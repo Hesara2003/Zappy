@@ -163,6 +163,7 @@ export const TestimonialsSection: React.FC = () => {
                                 <img
                                     src={study.image}
                                     alt={study.company}
+                                    loading="lazy"
                                     className="w-full h-full object-cover"
                                 />
 
