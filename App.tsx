@@ -12,6 +12,7 @@ import { Search } from './pages/Search';
 import { Saved } from './pages/Saved';
 import { Profile } from './pages/Profile';
 import { PageTransition } from './components/ui/PageTransition';
+import { ScrollToTop } from './components/ui/ScrollToTop';
 
 interface HomePageProps {
   isLoggedIn: boolean;
@@ -43,6 +44,7 @@ const App: React.FC = () => {
 
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Header isLoggedIn={isLoggedIn} toggleLogin={toggleLogin} />
       <Routes>
         <Route path="/" element={<HomePage isLoggedIn={isLoggedIn} toggleLogin={toggleLogin} />} />
