@@ -39,7 +39,7 @@ export const HeroGuest: React.FC = () => {
 
         {/* Main Hero Content */}
         <RevealOnScroll className="px-4 text-center max-w-[1200px] mx-auto mb-16 md:mb-24">
-          <h1 className="text-4xl md:text-6xl lg:text-[5.5rem] font-bold leading-[1.05] mb-8 tracking-[-0.02em]">
+          <h1 className="text-4xl md:text-6xl lg:text-[5.5rem] leading-[1.05] mb-8 tracking-[-0.02em]">
             Find out what's possible<br /> when work connects
           </h1>
 
