@@ -58,6 +58,12 @@ export interface PlaceData extends Place {
     specialty?: string;
     courses?: string[];
     type?: string;
+    // New fields for specific requirements
+    menu?: { item: string; price: string }[];
+    staff?: string[]; // For Education
+    tuitionFees?: string; // For Education
+    entryFee?: string; // For Attractions
+    openingHours?: string;
 }
 
 export const PLACES_DATA: Record<string, PlaceData[]> = {
@@ -73,7 +79,8 @@ export const PLACES_DATA: Record<string, PlaceData[]> = {
             isOpen: true,
             priceRange: '$150 - $400',
             description: 'Luxury resort located in the heart of tea gardens.',
-            amenities: ['Pool', 'Spa', 'Gym', 'Free Wi-Fi']
+            amenities: ['Pool', 'Spa', 'Gym', 'Free Wi-Fi'],
+            openingHours: '24/7'
         },
         {
             id: 'h2',
@@ -86,7 +93,8 @@ export const PLACES_DATA: Record<string, PlaceData[]> = {
             isOpen: true,
             priceRange: '$100 - $300',
             description: 'Beachfront hotel with stunning ocean views.',
-            amenities: ['Beach Access', 'Pool', 'Restaurant']
+            amenities: ['Beach Access', 'Pool', 'Restaurant'],
+            openingHours: '24/7'
         }
     ],
     restaurants: [
@@ -101,7 +109,13 @@ export const PLACES_DATA: Record<string, PlaceData[]> = {
             isOpen: true,
             cuisine: 'Indian Fusion',
             priceRange: '$$',
-            description: 'A modern take on traditional Indian cuisine.'
+            description: 'A modern take on traditional Indian cuisine.',
+            openingHours: '11:00 AM - 11:00 PM',
+            menu: [
+                { item: 'Butter Chicken', price: '$18' },
+                { item: 'Garlic Naan', price: '$4' },
+                { item: 'Lamb Vindaloo', price: '$22' }
+            ]
         },
         {
             id: 'r2',
@@ -114,7 +128,13 @@ export const PLACES_DATA: Record<string, PlaceData[]> = {
             isOpen: true,
             cuisine: 'Japanese',
             priceRange: '$$$',
-            description: 'Authentic sushi and sashimi experience.'
+            description: 'Authentic sushi and sashimi experience.',
+            openingHours: '12:00 PM - 10:00 PM',
+            menu: [
+                { item: 'Omakase Platter', price: '$80' },
+                { item: 'Spicy Tuna Roll', price: '$12' },
+                { item: 'Miso Soup', price: '$5' }
+            ]
         }
     ],
     cafes: [
@@ -129,7 +149,13 @@ export const PLACES_DATA: Record<string, PlaceData[]> = {
             isOpen: true,
             specialty: 'Artisan Coffee',
             priceRange: '$',
-            description: 'Cozy spot for coffee lovers and students.'
+            description: 'Cozy spot for coffee lovers and students.',
+            openingHours: '7:00 AM - 9:00 PM',
+            menu: [
+                { item: 'Latte', price: '$4.50' },
+                { item: 'Cappuccino', price: '$4.00' },
+                { item: 'Croissant', price: '$3.50' }
+            ]
         }
     ],
     education: [
@@ -143,7 +169,9 @@ export const PLACES_DATA: Record<string, PlaceData[]> = {
             location: 'City Center',
             isOpen: true,
             courses: ['Computer Science', 'Business', 'Arts'],
-            description: 'Leading university with a legacy of excellence.'
+            description: 'Leading university with a legacy of excellence.',
+            staff: ['Dr. Smith', 'Prof. Johnson'],
+            tuitionFees: '$15,000 / year'
         }
     ],
     attractions: [
@@ -157,7 +185,9 @@ export const PLACES_DATA: Record<string, PlaceData[]> = {
             location: 'Highlands',
             isOpen: true,
             type: 'Natural',
-            description: 'Best place to watch the sunset over the valley.'
+            description: 'Best place to watch the sunset over the valley.',
+            openingHours: '5:00 AM - 8:00 PM',
+            entryFee: 'Free'
         }
     ]
 };
