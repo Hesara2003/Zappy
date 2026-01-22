@@ -29,7 +29,7 @@ const PlaceDetail: React.FC = () => {
 
             {/* Hero Section */}
             <div className="relative h-[60vh] w-full">
-                <img src={place.image} className="w-full h-full object-cover" alt={place.title} />
+                <img src={place.image} loading="lazy" className="w-full h-full object-cover" alt={place.title} />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
 
                 <div className="absolute bottom-0 left-0 w-full p-8 md:p-12 text-white max-w-[1400px] mx-auto">
@@ -151,6 +151,7 @@ const PlaceDetail: React.FC = () => {
                     <div className="rounded-3xl overflow-hidden h-[400px] bg-gray-100 relative group">
                         <img
                             src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=1200&auto=format&fit=crop"
+                            loading="lazy"
                             className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500"
                             alt="Map Placeholder"
                         />
@@ -208,7 +209,7 @@ const PlaceDetail: React.FC = () => {
                         .map(related => (
                             <Link to={`/place/${related.id}`} key={related.id} className="block group">
                                 <div className="relative h-[240px] rounded-2xl overflow-hidden mb-4">
-                                    <img src={related.image} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                                    <img src={related.image} loading="lazy" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
                                 </div>
                                 <h3 className="font-bold text-lg mb-1">{related.title}</h3>
