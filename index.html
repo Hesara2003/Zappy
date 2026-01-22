@@ -1,69 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Zappy - One Platform to Connect</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      :root {
-        --tab-triangle-color: #5c6685;
-        --nav-main-list-items: #00053d;
-        --nav-background: hsla(0, 0%, 100%, .5);
-        --zdcm-item-background: #e6f0ff;
-        --zdcm-item-color: #00053d;
-        --panel-shadow: 0px 2.709px 14.449px 0px rgba(0, 0, 0, .06) inset, 0px 1.127px 6.012px 0px rgba(0, 0, 0, .04) inset;
-        --text-gradient-light: linear-gradient(90deg, #b8c2d6, #d1edff);
-        --text-gradient-dark: linear-gradient(90deg, #006be5, #4ab5ff);
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zappy - One Platform to Connect</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Manrope:wght@200..800&display=swap"
+    rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --tab-triangle-color: #5c6685;
+      --nav-main-list-items: #00053d;
+      --nav-background: hsla(0, 0%, 100%, .5);
+      --zdcm-item-background: #e6f0ff;
+      --zdcm-item-color: #00053d;
+      --panel-shadow: 0px 2.709px 14.449px 0px rgba(0, 0, 0, .06) inset, 0px 1.127px 6.012px 0px rgba(0, 0, 0, .04) inset;
+      --text-gradient-light: linear-gradient(90deg, #b8c2d6, #d1edff);
+      --text-gradient-dark: linear-gradient(90deg, #006be5, #4ab5ff);
+    }
+
+    /* Custom scrollbar hiding for the carousel */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Animations */
+    @keyframes float-slow {
+
+      0%,
+      100% {
+        transform: translateY(0);
       }
 
-      /* Custom scrollbar hiding for the carousel */
-      .no-scrollbar::-webkit-scrollbar {
-        display: none;
+      50% {
+        transform: translateY(-10px);
       }
-      .no-scrollbar {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
+    }
+
+    @keyframes float-delayed {
+
+      0%,
+      100% {
+        transform: translateY(0);
       }
 
-      /* Animations */
-      @keyframes float-slow {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-10px); }
+      50% {
+        transform: translateY(-8px);
       }
-      @keyframes float-delayed {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-8px); }
+    }
+
+    @keyframes float-fast {
+
+      0%,
+      100% {
+        transform: translateY(0);
       }
-      @keyframes float-fast {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-12px); }
+
+      50% {
+        transform: translateY(-12px);
       }
-      @keyframes bounce-slow {
-         0%, 100% { transform: translateY(0); }
-         50% { transform: translateY(-10px); }
+    }
+
+    @keyframes bounce-slow {
+
+      0%,
+      100% {
+        transform: translateY(0);
       }
-      @keyframes fade-in-up {
-          0% { opacity: 0; transform: translateY(20px); }
-          100% { opacity: 1; transform: translateY(0); }
+
+      50% {
+        transform: translateY(-10px);
       }
-      
-      .animate-float-slow { animation: float-slow 4s ease-in-out infinite; }
-      .animate-float-delayed { animation: float-delayed 5s ease-in-out infinite 1s; }
-      .animate-float-fast { animation: float-fast 3s ease-in-out infinite; }
-      .animate-bounce-slow { animation: bounce-slow 3s infinite; }
-      .animate-fade-in-up { animation: fade-in-up 0.5s ease-out forwards; }
-      
-      body {
-        font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+    }
+
+    @keyframes fade-in-up {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
       }
-      h1, h2, h3, h4, h5, h6, .font-heading {
-        font-family: 'Manrope', sans-serif;
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
       }
-    </style>
+    }
+
+    .animate-float-slow {
+      animation: float-slow 4s ease-in-out infinite;
+    }
+
+    .animate-float-delayed {
+      animation: float-delayed 5s ease-in-out infinite 1s;
+    }
+
+    .animate-float-fast {
+      animation: float-fast 3s ease-in-out infinite;
+    }
+
+    .animate-bounce-slow {
+      animation: bounce-slow 3s infinite;
+    }
+
+    .animate-fade-in-up {
+      animation: fade-in-up 0.5s ease-out forwards;
+    }
+
+    body {
+      font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .font-heading {
+      font-family: 'Manrope', sans-serif;
+    }
+
+    @keyframes shine {
+      0% {
+        transform: translateX(-100%) skewX(12deg);
+      }
+
+      100% {
+        transform: translateX(200%) skewX(12deg);
+      }
+    }
+
+    .animate-shine {
+      animation: shine 1.5s ease-in-out infinite;
+    }
+  </style>
   <script type="importmap">
 {
   "imports": {
@@ -74,10 +152,12 @@
   }
 }
 </script>
-<link rel="stylesheet" href="/index.css">
+  <link rel="stylesheet" href="/index.css">
 </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
-  </body>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+
 </html>

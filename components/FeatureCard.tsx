@@ -151,7 +151,7 @@ export const FeatureCard: React.FC<FeatureCardProps> = ({ data }) => {
                                     <div className="w-2.5 h-2.5 rounded-full bg-white/20"></div>
                                     <div className="w-2.5 h-2.5 rounded-full bg-white/20"></div>
                                 </div>
-                                <div className="text-white text-xs font-semibold">Zappy Workplace</div>
+                                <div className="text-white text-xs font-semibold">Zoom Workplace</div>
                                 <Search size={12} className="text-white/70" />
                             </div>
 
