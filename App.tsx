@@ -1,18 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { GuestView } from './components/home/GuestView';
 import { LoggedInView } from './components/home/LoggedInView';
 import { MobileNav } from './components/MobileNav';
-import { CategoryListing } from './pages/CategoryListing';
-import PlaceDetail from './pages/PlaceDetail';
-import { Categories } from './pages/Categories';
-import { Search } from './pages/Search';
-import { Saved } from './pages/Saved';
-import { Profile } from './pages/Profile';
 import { PageTransition } from './components/ui/PageTransition';
 import { ScrollToTop } from './components/ui/ScrollToTop';
+
+// Lazy load pages for better initial load performance
+const CategoryListing = lazy(() => import('./pages/CategoryListing').then(m => ({ default: m.CategoryListing })));
+const PlaceDetail = lazy(() => import('./pages/PlaceDetail'));
+const Categories = lazy(() => import('./pages/Categories').then(m => ({ default: m.Categories })));
+const Search = lazy(() => import('./pages/Search').then(m => ({ default: m.Search })));
+const Saved = lazy(() => import('./pages/Saved').then(m => ({ default: m.Saved })));
+const Profile = lazy(() => import('./pages/Profile').then(m => ({ default: m.Profile })));
+
+// Loading fallback component
+const PageLoader = () => (
+  <div className="min-h-screen flex items-center justify-center bg-[#fafcff]">
+    <div className="flex flex-col items-center gap-3">
+      <div className="w-10 h-10 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+      <p className="text-gray-500 text-sm">Loading...</p>
+    </div>
+  </div>
+);
 
 interface HomePageProps {
   isLoggedIn: boolean;
