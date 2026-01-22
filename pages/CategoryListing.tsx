@@ -46,6 +46,32 @@ export const CategoryListing: React.FC = () => {
             </div>
 
             <main className="flex-1 max-w-[1400px] mx-auto px-6 py-12 w-full">
+                {/* Search Bar */}
+                <div className="mb-12">
+                    <div className="bg-white p-4 rounded-2xl shadow-lg border border-gray-100 flex flex-col md:flex-row gap-4 items-center max-w-4xl mx-auto -mt-24 relative z-20">
+                        <div className="flex-1 flex items-center gap-3 w-full px-4">
+                            <category.icon className="text-gray-400" />
+                            <input
+                                type="text"
+                                placeholder={`Search ${category.name.toLowerCase()}...`}
+                                className="w-full bg-transparent outline-none text-gray-800 placeholder-gray-400"
+                            />
+                        </div>
+                        <div className="w-px h-8 bg-gray-200 hidden md:block"></div>
+                        <div className="flex-1 flex items-center gap-3 w-full px-4">
+                            <MapPin className="text-gray-400" />
+                            <input
+                                type="text"
+                                placeholder="Location..."
+                                className="w-full bg-transparent outline-none text-gray-800 placeholder-gray-400"
+                            />
+                        </div>
+                        <button className="bg-black text-white px-8 py-3 rounded-xl font-bold hover:bg-gray-800 transition-colors w-full md:w-auto">
+                            Search
+                        </button>
+                    </div>
+                </div>
+
                 <div className="flex flex-col lg:flex-row gap-12">
 
                     {/* Filters Sidebar */}

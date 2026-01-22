@@ -92,6 +92,59 @@ export const PlaceDetail: React.FC = () => {
                                 ))}
                             </div>
                         )}
+
+                        {/* Menu Section (Restaurants & Cafes) */}
+                        {place.menu && (
+                            <div>
+                                <h3 className="text-xl font-bold text-gray-900 mb-6">Menu Highlights</h3>
+                                <div className="grid md:grid-cols-2 gap-4">
+                                    {place.menu.map((item, idx) => (
+                                        <div key={idx} className="flex justify-between items-center p-4 rounded-xl bg-gray-50 border border-gray-100">
+                                            <span className="font-medium text-gray-800">{item.item}</span>
+                                            <span className="font-bold text-gray-900">{item.price}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+
+                        {/* Education Specifics */}
+                        {(place.staff || place.tuitionFees) && (
+                            <div className="space-y-6">
+                                {place.tuitionFees && (
+                                    <div className="p-6 rounded-2xl bg-indigo-50 border border-indigo-100">
+                                        <h4 className="text-indigo-900 font-bold mb-2">Tuition Information</h4>
+                                        <p className="text-indigo-700">{place.tuitionFees}</p>
+                                    </div>
+                                )}
+                                {place.staff && (
+                                    <div>
+                                        <h3 className="text-xl font-bold text-gray-900 mb-4">Key Staff</h3>
+                                        <div className="flex gap-4">
+                                            {place.staff.map((member, idx) => (
+                                                <div key={idx} className="flex items-center gap-3 bg-white p-3 rounded-xl border border-gray-200">
+                                                    <div className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 font-bold">
+                                                        {member[0]}
+                                                    </div>
+                                                    <span className="font-medium text-gray-800">{member}</span>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+                        )}
+
+                        {/* Attraction Specifics */}
+                        {place.entryFee && (
+                            <div className="p-6 rounded-2xl bg-orange-50 border border-orange-100 flex justify-between items-center">
+                                <div>
+                                    <h4 className="text-orange-900 font-bold">Entry Fee</h4>
+                                    <p className="text-orange-700 text-sm">General Admission</p>
+                                </div>
+                                <span className="text-2xl font-bold text-orange-600">{place.entryFee}</span>
+                            </div>
+                        )}
                     </div>
 
                     {/* Location Placeholder */}
