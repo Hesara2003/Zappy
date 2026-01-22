@@ -18,18 +18,18 @@ export const HeroGuest: React.FC = () => {
         {/* Top Promotional Banner */}
         {showBanner && (
           <div className="max-w-7xl mx-auto px-4 mb-8">
-            <div className="bg-[#1e2336]/60 backdrop-blur-md rounded-full text-xs md:text-sm py-2 px-4 flex justify-between items-center w-full md:w-fit md:mx-auto border border-white/10">
-              <div className="flex gap-3 items-center text-center">
-                <span className="font-medium opacity-90 truncate">The Zappy Solopreneur 50 is now accepting nominations</span>
-                <a href="#" className="font-bold hover:text-blue-300 whitespace-nowrap flex items-center">
+            <div className="bg-[#1e2336]/60 backdrop-blur-md rounded-2xl md:rounded-full text-xs md:text-sm py-3 px-4 md:py-2 flex justify-between items-start md:items-center w-full md:w-fit md:mx-auto border border-white/10 relative">
+              <div className="flex flex-col md:flex-row gap-1 md:gap-3 items-start md:items-center text-left md:text-center pr-8 md:pr-0">
+                <span className="font-medium opacity-90 leading-snug">The Zappy Solopreneur 50 is now accepting nominations</span>
+                <a href="#" className="font-bold hover:text-blue-300 whitespace-nowrap flex items-center mt-1 md:mt-0">
                   Learn more <ChevronRight size={12} className="ml-1" />
                 </a>
               </div>
               <button
                 onClick={() => setShowBanner(false)}
-                className="ml-4 hover:bg-white/10 p-1 rounded-full transition-colors"
+                className="hover:bg-white/10 p-1 rounded-full transition-colors flex-shrink-0 absolute right-3 top-3 md:static md:ml-4"
               >
-                <X size={12} />
+                <X size={14} />
               </button>
             </div>
           </div>
