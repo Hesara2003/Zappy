@@ -76,7 +76,7 @@ export const CategoryListing: React.FC = () => {
 
                 {/* Search Bar */}
                 <div className="mb-12">
-                    <div className="bg-white p-4 rounded-2xl shadow-lg border border-gray-100 flex flex-col md:flex-row gap-4 items-center max-w-4xl mx-auto -mt-24 relative z-20">
+                    <div className="bg-white p-4 rounded-2xl shadow-lg border border-gray-100 flex flex-col md:flex-row gap-4 items-center max-w-4xl mx-auto -mt-32 relative z-20">
                         <div className="flex-1 flex items-center gap-3 w-full px-4">
                             <category.icon className="text-gray-400" />
                             <input
