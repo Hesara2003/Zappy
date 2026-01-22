@@ -8,7 +8,7 @@ export const HeroGuest: React.FC = () => {
   return (
     <div className="relative bg-black">
       {/* Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#00053d] via-[#00053d] to-black z-0"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#0b1a60] via-[#00053d] to-black z-0"></div>
 
       <section className="relative z-10 pt-20 pb-4 md:pt-24 md:pb-12 text-white overflow-hidden">
         {/* Top Promotional Banner */}

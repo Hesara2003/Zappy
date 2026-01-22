@@ -28,7 +28,6 @@ export const CategoriesGrid: React.FC = () => {
             // Determine span classes
             let spanClass = "";
             if (index === 0) spanClass = "md:col-span-2 md:row-span-2"; // First Item: Large Square
-            else if (index === 2) spanClass = "md:col-span-1 md:row-span-2"; // Third Item: Tall
             else spanClass = "md:col-span-1"; // Others: Standard
 
             return (
