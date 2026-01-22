@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 export const CategoriesGrid: React.FC = () => {
   return (
-    <section className="py-24 px-6 bg-black relative">
+    <section className="py-24 px-6 bg-black relative overflow-hidden">
       {/* Ambient Glow */}
       <div className="absolute top-1/2 left-1/4 w-[500px] h-[500px] bg-blue-900/20 rounded-full blur-[128px] pointer-events-none -translate-y-1/2"></div>
 
