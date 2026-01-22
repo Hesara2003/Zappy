@@ -15,13 +15,13 @@ export const FeatureCard: React.FC<FeatureCardProps> = ({ data }) => {
         >
 
             {/* Header */}
-            <div className="absolute top-0 left-0 w-full p-6 z-30 flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                    <Icon className="text-white/90 fill-current" size={20} strokeWidth={0} />
-                    <span className="text-white font-semibold text-lg tracking-wide">{data.category}</span>
+            <div className="absolute top-0 left-0 w-full p-5 z-30 flex items-center justify-between pointer-events-none">
+                <div className="flex items-center gap-2.5 bg-white/10 backdrop-blur-md border border-white/10 px-4 py-2.5 rounded-full shadow-lg transition-transform duration-300 group-hover:scale-105 pointer-events-auto">
+                    <Icon className="text-white" size={18} strokeWidth={2} />
+                    <span className="text-white font-semibold text-[15px] tracking-wide leading-none pt-[1px]">{data.category}</span>
                 </div>
                 {data.hasNotification && (
-                    <div className="w-3 h-3 bg-red-500 rounded-full shadow-[0_0_8px_rgba(239,68,68,0.6)]"></div>
+                    <div className="w-2.5 h-2.5 bg-[#ff4433] rounded-full shadow-[0_0_8px_rgba(255,68,51,0.8)] animate-pulse"></div>
                 )}
             </div>
 
